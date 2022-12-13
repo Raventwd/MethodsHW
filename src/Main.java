@@ -8,18 +8,18 @@ public class Main {
             System.out.println(year + " год не високосный");
     }
 
-    public static void getVersion(int clientDeviceYear, int clientOS) {
+    public static void getVersion(int clientDeviceYear, int clientOS, int currentYear) {
         System.out.println("//Task 2");
-        if (clientOS == 1 && clientDeviceYear <= 2015) {     //clientOs = 1 - andoid os , clientOs = 0 - ios
+        if (clientOS == 1 && clientDeviceYear < currentYear) {     //clientOs = 1 - Android os , clientOs = 0 - Ios
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
-        if (clientOS == 1 && clientDeviceYear > 2015) {
-            System.out.println("Установите  версию приложения для Android по ссылке");
+        if (clientOS == 1 && clientDeviceYear == currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
-        if (clientOS == 0 && clientDeviceYear <= 2015) {
+        if (clientOS == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
         }
-        if (clientOS == 0 && clientDeviceYear > 2015) {
+        if (clientOS == 0 && clientDeviceYear == currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }
     }
@@ -44,9 +44,10 @@ public class Main {
         int year = 2022;
         getYearLeap(year);
 
+        int currentYear = 2022;
         int clientDeviceYear = 2014;
         int clientOs = 1;
-        getVersion(clientDeviceYear, clientOs);
+        getVersion(clientDeviceYear, clientOs, currentYear);
 
         int deliveryDistance = 95;
         int deliveryDays = 1;
