@@ -1,6 +1,6 @@
 public class Main {
 
-    public static void yearLeap(int year){
+    public static void getYearLeap(int year){
         System.out.println("//Task 1");
         for (int i = 0; i < 1; i++) {
             if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
@@ -10,7 +10,7 @@ public class Main {
         }
     }
 
-    public static void version(int clientDeviceYear, int clientOS){
+    public static void getVersion(int clientDeviceYear, int clientOS){
         System.out.println("//Task 2");
         if (clientDeviceYear <= 2015) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
@@ -28,31 +28,30 @@ public class Main {
     public static int delivery(int deliveryDistance, int deliveryDays){
         System.out.println("//Task 3");
         if (deliveryDistance <= 20) {
-            System.out.println("потребуется "+deliveryDays+" день");
+            return 1;
         }
         else if (deliveryDistance > 20 && deliveryDistance < 60) {
-            deliveryDays++;
-            System.out.println("потребуется "+deliveryDays+" дня");
+            deliveryDays+=1;
+            return 2;
         }
         else if (deliveryDistance > 60 && deliveryDistance <= 100 ) {
-            deliveryDays++;
-            System.out.println("потребуется "+deliveryDays+" дня");
+            deliveryDays+=2;
+            return 3;
         }
-        else if (deliveryDistance > 100 ) {
+        else {
             System.out.println("Не доставим");
         }
         return deliveryDays;
-
     }
     public static void main(String[] args) {
         int year = 2022;
-        yearLeap(year);
+        getYearLeap(year);
 
         int clientDeviceYear = 2014;
         int clientOs = 1;
-        version(clientDeviceYear, clientOs);
+        getVersion(clientDeviceYear, clientOs);
 
-        int deliveryDistance = 105;
+        int deliveryDistance = 95;
         int deliveryDays = 1;
         delivery(deliveryDistance, deliveryDays);
     }
