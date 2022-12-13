@@ -1,18 +1,16 @@
 public class Main {
 
-    public static void getYearLeap(int year){
+    public static void getYearLeap(int year) {
         System.out.println("//Task 1");
-        for (int i = 0; i < 1; i++) {
-            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
-                System.out.println(year + " год вискосный");
-            }else
-                System.out.println(year + " год не високосный");
-        }
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            System.out.println(year + " год вискосный");
+        } else
+            System.out.println(year + " год не високосный");
     }
 
-    public static void getVersion(int clientDeviceYear, int clientOS){
+    public static void getVersion(int clientDeviceYear, int clientOS) {
         System.out.println("//Task 2");
-        if (clientDeviceYear <= 2015) {
+        if (clientOS == 1 && clientDeviceYear <= 2015) {     //clientOs = 1 - andoid os , clientOs = 0 - ios
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
         if (clientOS == 1 && clientDeviceYear > 2015) {
@@ -25,24 +23,23 @@ public class Main {
             System.out.println("Установите версию приложения для iOS по ссылке");
         }
     }
-    public static int delivery(int deliveryDistance, int deliveryDays){
+
+    public static int delivery(int deliveryDistance, int deliveryDays) {
         System.out.println("//Task 3");
         if (deliveryDistance <= 20) {
             return 1;
-        }
-        else if (deliveryDistance > 20 && deliveryDistance < 60) {
-            deliveryDays+=1;
+        } else if (deliveryDistance > 20 && deliveryDistance < 60) {
+            deliveryDays += 1;
             return 2;
-        }
-        else if (deliveryDistance > 60 && deliveryDistance <= 100 ) {
-            deliveryDays+=2;
+        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            deliveryDays += 2;
             return 3;
-        }
-        else {
+        } else {
             System.out.println("Не доставим");
         }
         return deliveryDays;
     }
+
     public static void main(String[] args) {
         int year = 2022;
         getYearLeap(year);
